@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/mysite2/assets/css/mysite.css" rel="stylesheet"
-	type="text/css">
+<link href="/mysite2/assets/css/mysite.css" rel="stylesheet" type="text/css">
 <link href="/mysite2/assets/css/user.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -16,7 +15,7 @@
 
 		<div id="header" class="clearfix">
 			<h1>
-				<a href="">MySite</a>
+				<a href="/mysite2/main">MySite</a>
 			</h1>
 
 			<!-- 
@@ -25,12 +24,12 @@
 				<li><a href="" class="btn_s">로그아웃</a></li>
 				<li><a href="" class="btn_s">회원정보수정</a></li>
 			</ul>
-			-->
+			-->	
 			<ul>
 				<li><a href="/mysite2/user?action=loginForm" class="btn_s">로그인</a></li>
 				<li><a href="/mysite2/user?action=joinForm" class="btn_s">회원가입</a></li>
 			</ul>
-
+			
 		</div>
 		<!-- //header -->
 
@@ -56,7 +55,7 @@
 			<!-- //aside -->
 
 			<div id="content">
-
+			
 				<div id="content-head">
 					<h3>회원가입</h3>
 					<div id="location">
@@ -69,14 +68,16 @@
 					<div class="clear"></div>
 				</div>
 				<!-- //content-head -->
-
+	
 				<div id="user">
 					<div id="joinOK">
-
+					
 						<p class="text-large bold">
-							회원가입을 축하합니다.<br> <br> <a href="">[로그인하기]</a>
+							회원가입을 축하합니다.<br>
+							<br>
+							<a href="/mysite2/user?action=loginForm" >[로그인하기]</a>
 						</p>
-
+							
 					</div>
 					<!-- //joinOK -->
 				</div>
@@ -87,7 +88,9 @@
 		<!-- //container  -->
 
 
-		<div id="footer">Copyright ⓒ 2020 황일영. All right reserved</div>
+		<div id="footer">
+			Copyright ⓒ 2020 황일영. All right reserved
+		</div>
 		<!-- //footer -->
 
 	</div>

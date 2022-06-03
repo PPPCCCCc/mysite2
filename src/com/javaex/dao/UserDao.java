@@ -78,38 +78,73 @@ public class UserDao {
 		return count;
 	}
 
-	public UserVo login(UserVo userVo) { //로그인
-		
+	public UserVo getUser(UserVo userVo) {
+		UserVo authUser = null;
+
 		this.getConnection();
 
 		try {
 
+			// 3. SQL문 준비 / 바인딩 / 실행
+			// SQL문 준비
 			String query = "";
-			query += " select  no, ";
-			query += "         name ";
-			query += " from users ";
-			query += " where id = ? ";
-			query += " and password = ? ";
-			System.out.println(query);
+			query += " select no, name from users where id = ? and password = ? ";
 			
+			System.out.println(query);
+
+			// 바인딩
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, userVo.getId());
 			pstmt.setString(2, userVo.getPassword());
-			
+
+			// 실행
 			rs = pstmt.executeQuery();
-			
-		
-			
+
+			// 4.결과처리
+			while (rs.next()) {
+				int no = rs.getInt("no");
+				String name = rs.getString("name");
+
+				authUser = new UserVo();
+				authUser.setNo(no);
+				authUser.setName(name);
+			}
+
 		} catch (SQLException e) {
-		    System.out.println("error:" + e);
-		} 
-		
+			System.out.println("error:" + e);
+		}
+
 		this.close();
 
-		return login(null);
-		
+		return authUser;
+
 	}
-	
-	
-	
+	public void modify(UserVo userVo) {
+			int count = 0;
+			this.getConnection();
+			
+			try {
+				String query = "";
+				query += " update users ";
+				query += " set name = ?,";
+				query += "     password = ?, ";
+				query += "     gender = ? ";
+				query += " where no = ? ";
+				System.out.println(query);
+				
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, userVo.getName());
+				pstmt.setString(2, userVo.getPassword());
+				pstmt.setString(3, userVo.getGender());
+				pstmt.setString(4, userVo.getId());
+				
+				count = pstmt.executeUpdate();
+				
+				System.out.println(count + "건 수정");
+			} catch (SQLException e) {
+				System.out.println("error: " + e);
+			}
+			
+	}
+
 }

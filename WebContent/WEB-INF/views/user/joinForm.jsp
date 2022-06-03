@@ -1,14 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/mysite2/assets/css/mysite.css" rel="stylesheet"
-	type="text/css">
-<link href="/mysite2/assets/css/user.css" rel="stylesheet"
-	type="text/css">
+<link href="/mysite2/assets/css/mysite.css" rel="stylesheet" type="text/css">
+<link href="/mysite2/assets/css/user.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -17,7 +15,7 @@
 
 		<div id="header" class="clearfix">
 			<h1>
-				<a href="">MySite</a>
+				<a href="/mysite2/main">MySite</a>
 			</h1>
 
 			<!-- 
@@ -73,8 +71,9 @@
 	
 				<div id="user">
 					<div id="joinForm">
-						<form action="/mysite2/user?action=joinForm" method="get">
+						<form action="/mysite2/user" method="get">
 							<input type="text" name="action" value="join">
+	
 	
 							<!-- 아이디 -->
 							<div class="form-group">
@@ -103,7 +102,7 @@
 								<input type="radio" id="rdo-male" name="gender" value="male" > 
 								
 								<label for="rdo-female">여</label> 
-								<input type="radio" id="rdo-female" name="gender" value="fmale" > 
+								<input type="radio" id="rdo-female" name="gender" value="female" > 
 	
 							</div>
 	
@@ -131,7 +130,7 @@
 		<!-- //container  -->
 		
 		<div id="footer">
-			Copyright ⓒ 2022 박찬희. All right reserved
+			Copyright ⓒ 2020 황일영. All right reserved
 		</div>
 		<!-- //footer -->
 

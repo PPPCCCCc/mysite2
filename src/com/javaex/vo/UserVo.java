@@ -7,6 +7,13 @@ public class UserVo {
 	private String name;
 	private String password;
 	private String gender;
+	
+	public UserVo(String id, String name, String password, String gender) {
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.gender = gender;
+	}
 
 	public UserVo(int no, String id, String name, String password, String gender) {
 		super();
