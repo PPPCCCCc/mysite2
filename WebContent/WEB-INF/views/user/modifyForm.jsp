@@ -27,28 +27,13 @@ System.out.println(authUser);
 				<a href="/mysite2/main">MySite</a>
 			</h1>
 
-			<%
-			if (authUser.equals(" ")) {
-			%>
-			<!--로그인 실행-->
-			<!--로그인 실패-->
 			<ul>
-				<li><a href="/mysite2/user?action=loginForm" class="btn_s">로그인</a></li>
-				<li><a href="/mysite2/user?action=joinForm" class="btn_s">회원가입</a></li>
-			</ul>
-			<%
-			} else {
-			%>
-			<!-- 로그인 성공 -->
-			<ul>
-				<li><%=authUser.getName()%> 님 안녕하세요^^</li>
+				<li><%=authUser.getName()%>님 안녕하세요^^</li>
 				<li><a href="/mysite2/user?action=logout" class="btn_s">로그아웃</a></li>
-				<li><a href="/mysite2/user?action=modifyForm" class="btn_s">회원정보수정</a></li>
+				<li><a href="/mysite2/user?action=modifyFrom" class="btn_s">회원정보수정</a></li>
 			</ul>
-			<%
-			}
-			%>
 
+			
 		</div>
 		<!-- //header -->
 
@@ -96,14 +81,14 @@ System.out.println(authUser);
 							<!-- 아이디 -->
 							<div class="form-group">
 								<label class="form-text" for="input-uid">아이디</label> <span
-									class="text-large bold"></span> 
+									class="text-large bold"></span>
 							</div>
 
 							<!-- 비밀번호 -->
 							<div class="form-group">
 								<label class="form-text" for="input-pass">패스워드</label> <input
-									type="text" id="input-pass" name="password"
-									value="" placeholder="비밀번호를 입력하세요">
+									type="text" id="input-pass" name="password" value=""
+									placeholder="비밀번호를 입력하세요">
 							</div>
 
 							<!-- 이메일 -->
