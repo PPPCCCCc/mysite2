@@ -75,6 +75,7 @@ public class UserController extends HttpServlet {
 			//authUSer null이면 --> 로그인 실패
 			if(authUser == null) {
 				System.out.println("로그인 실패");
+				WebUtil.redirect(request, response, "/mysite2/user?action=loginForm&result=fail");
 			}else {
 				System.out.println("로그인 성공");
 				
@@ -106,24 +107,51 @@ public class UserController extends HttpServlet {
 
 			// 메인으로 리다이렉트
 			WebUtil.redirect(request, response, "/mysite2/main");
-		} else if ("modifyForm".equals(action)) {
-			// System.out.println("테스트트");
+		} else if("modifyForm".equals(action)) { //수정폼
+			System.out.println("UserController>modifyForm");
+		
+			//로그인한 사용자의  no 값을 세션에서 가져오기
+			HttpSession session = request.getSession();
+			UserVo authUser = (UserVo)session.getAttribute("authUser");
+			int no = authUser.getNo();
+			
+			//no 로 사용자 정보 가져오기
+			UserDao userDao = new UserDao();
+			UserVo userVo = userDao.getUser(no);  //no id password name gender
+			
+			//request 의 attribute 에 userVo 는 넣어서 포워딩
+			request.setAttribute("userVo", userVo);
 			WebUtil.forward(request, response, "/WEB-INF/views/user/modifyForm.jsp");
-		} else if ("modify".equals(action)) {
-			String id = request.getParameter("id");
-			String name = request.getParameter("name");
+		
+		}else if("modify".equals(action)) { //수정
+			System.out.println("UserController>modify");
+			
+			//세션에서 no
+			HttpSession session = request.getSession();
+			UserVo authUser = (UserVo)session.getAttribute("authUser");
+			int no = authUser.getNo();
+			
+			//파라미터꺼낸다
 			String password = request.getParameter("password");
+			String name = request.getParameter("name");
 			String gender = request.getParameter("gender");
 			
-			UserVo userVo = new UserVo(id, name, password, gender);
+			//묶어준다
+			UserVo userVo = new UserVo();
+			userVo.setNo(no);
+			userVo.setPassword(password);
+			userVo.setName(name);
+			userVo.setGender(gender);
 			
-			HttpSession session = request.getSession();
-			session.setAttribute(name, session);
+			//dao를 사용한다
+			UserDao userDao = new UserDao();
+			int count = userDao.update(userVo);
+			
+			//리다이렉트(main)
+			WebUtil.redirect(request, response, "/mysite2/main");
 		}
 		
-		
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		doGet(request, response);
