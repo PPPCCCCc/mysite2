@@ -83,7 +83,7 @@
 							<td>${gBookVo.no }  </td>
 							<td>${gBookVo.name }  </td>
 							<td>${gBookVo.regdate }  </td>
-							<td><a href="/mysite2/guest?action=dForm&no=${gBookVo.no }  ">삭제</a></td>
+							<td><a href="/mysite2/guest?action=deleteForm&no=${gBookVo.no }  ">삭제</a></td>
 						</tr>
 						<tr>
 							<td colspan=4 class="text-left">방명록 내용<br>${gBookVo.content } %></td>
@@ -92,7 +92,7 @@
 
 				</c:forEach>
 				<!-- //guestbook -->
-			
+			</div>
 			</div>
 			<!-- //content  -->
 		</div>

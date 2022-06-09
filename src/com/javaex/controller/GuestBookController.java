@@ -25,8 +25,6 @@ public class GuestBookController extends HttpServlet {
 
 		if ("addList".equals(action)) {
 
-			System.out.println("[GuestbookController.addList]");
-
 			GuestBookDao gBookDao = new GuestBookDao();
 			List<GuestBookVo> guestList = gBookDao.getGuestList();
 
@@ -37,8 +35,6 @@ public class GuestBookController extends HttpServlet {
 			WebUtil.forward(request, response, "/WEB-INF/views/guestbook/addList.jsp");
 
 		} else if ("add".equals(action)) {
-
-			System.out.println("[GuestbookController.add]");
 
 			String name = request.getParameter("name");
 			String password = request.getParameter("password");
@@ -51,9 +47,7 @@ public class GuestBookController extends HttpServlet {
 
 			WebUtil.redirect(request, response, "/mysite2/guest?action=addList");
 
-		} else if ("dForm".equals(action)) {
-
-			System.out.println("[GuestbookController.deleteForm]");
+		} else if ("deleteForm".equals(action)) {
 
 			WebUtil.forward(request, response, "/WEB-INF/views/guestbook/deleteForm.jsp");
 
