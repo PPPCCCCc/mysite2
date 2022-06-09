@@ -80,8 +80,6 @@
 										<td><a href="/mysite2/lct?action=delete&no=${boardVo.no }">[삭제]</a></td>
 									</c:if>
 								</tr>
-								
-								
 							</tbody>
 							</c:forEach>
 						</table>

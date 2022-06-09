@@ -72,9 +72,6 @@
 
 
 				<c:forEach items="${gList }" var="gBookVo">
-				<%
-				//for(int i=0; i<guestList.size(); i++) {
-				%>
 					<table class="guestRead">
 						<colgroup>
 							<col style="width: 10%;">
@@ -83,19 +80,16 @@
 							<col style="width: 10%;">
 						</colgroup>
 						<tr>
-							<td>${gBookVo.no }  <%//=guestList.get(i).getNo() %></td>
-							<td>${gBookVo.name }  <%//=guestList.get(i).getName() %></td>
-							<td>${gBookVo.regdate }  <%//=guestList.get(i).getRegdate() %></td>
-							<td><a href="/mysite2/guest?action=dForm&no=${gBookVo.no }  <%//=guestList.get(i).getNo() %>">삭제</a></td>
+							<td>${gBookVo.no }  </td>
+							<td>${gBookVo.name }  </td>
+							<td>${gBookVo.regdate }  </td>
+							<td><a href="/mysite2/guest?action=dForm&no=${gBookVo.no }  ">삭제</a></td>
 						</tr>
 						<tr>
-							<td colspan=4 class="text-left">방명록 내용<br>${gBookVo.content }  <%//=guestList.get(i).getContent() %></td>
+							<td colspan=4 class="text-left">방명록 내용<br>${gBookVo.content } %></td>
 						</tr>
 					</table>
 
-				<%
-				//}
-				%>
 				</c:forEach>
 				<!-- //guestbook -->
 			
