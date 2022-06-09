@@ -180,7 +180,7 @@ public class BoardDao {
 		try {
 			// 3. SQL문 준비 / 바인딩 / 실행
 			String query = "";
-			query += " Delete from board ";
+			query += " delete from board ";
 			query += " where no = ? ";
 
 			// 쿼리만ㄷㄹ기
@@ -191,8 +191,7 @@ public class BoardDao {
 			count = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("error:" + e);
 		}
 
 		this.close();
@@ -226,8 +225,7 @@ public class BoardDao {
 			// 4.결과처리
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("error:" + e);
 		}
 
 		this.close();
@@ -257,8 +255,7 @@ public class BoardDao {
 			count = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("error:" + e);
 		}
 
 		this.close();
